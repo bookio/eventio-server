@@ -34,6 +34,9 @@ app.use('/groups', require('./routes/groups'));
 app.use('/sessions', require('./routes/sessions'));
 app.use('/icons', require('./routes/icons'));
 app.use('/clients', require('./routes/clients'));
+app.use('/events', require('./routes/events'));
+
+
 
 
 app.get('/verify', function (request, response) {
@@ -251,5 +254,21 @@ app.get('/login', function (request, response) {
 app.listen(app.get('port'), function() {
 	console.log("Node app is running on port " + app.get('port'));
 });
+
+
+function createEvents() {
+
+	var Model = require('./model');
+	var Server = require('./server');
+
+	console.log('Syncing events');
+	Model.Event.sync().then(function(){
+		console.log('Events synced');
+	});
+}
+
+
+
+createEvents();
 
 module.exports = app;

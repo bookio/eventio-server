@@ -13,6 +13,7 @@ Model.Option      = require('./model/options');
 Model.Setting     = require('./model/setting');
 Model.Icon        = require('./model/icon');
 Model.Schedule    = require('./model/schedule');
+Model.Event       = require('./model/event');
 
 
 Model.User.belongsTo(Model.Client, {foreignKey: 'client_id', onDelete: 'CASCADE', hooks:true});
@@ -46,6 +47,10 @@ Model.Rental.belongsTo(Model.Icon, {foreignKey: 'icon_id'});
 //Model.Rental.belongsTo(Model.Option, {foreignKey: 'option_id'});
 Model.Rental.hasMany(Model.Reservation, {foreignKey: 'rental_id'});
 
+Model.Event.belongsTo(Model.Client, {foreignKey: 'client_id'});
+
+
+
 Model.Reservation.belongsTo(Model.Client, {foreignKey: 'client_id'});
 Model.Reservation.belongsTo(Model.Rental, {foreignKey: 'rental_id'});
 Model.Reservation.belongsTo(Model.Customer, {foreignKey: 'customer_id'});
@@ -62,6 +67,7 @@ Model.Client.hasMany(Model.Schedule, {foreignKey: 'client_id'});
 Model.Client.hasMany(Model.Session, {foreignKey: 'client_id'});
 Model.Client.hasMany(Model.Group, {foreignKey: 'client_id'});
 Model.Client.hasMany(Model.Option, {foreignKey: 'client_id'});
+Model.Client.hasMany(Model.Event, {foreignKey: 'client_id'});
 
 
 function sync(options) {
