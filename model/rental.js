@@ -23,11 +23,6 @@ module.exports = sequelize.define('rentals', {
 		defaultValue  : 1,
 		allowNull     : false
 	},
-	'seats': {
-		type          : Sequelize.INTEGER,
-		defaultValue  : 1,
-		allowNull     : false
-	},
 	'available': {
 		type          : Sequelize.INTEGER,
 		defaultValue  : 1,

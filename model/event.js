@@ -18,20 +18,17 @@ module.exports = sequelize.define('events', {
 		defaultValue  : '',
 		allowNull     : false
 	},
-	'depth': {
-		type          : Sequelize.INTEGER,
-		defaultValue  : 1,
-		allowNull     : false
+	'price': {
+		type          : Sequelize.FLOAT,
+		allowNull     : true
 	},
 	'seats': {
 		type          : Sequelize.INTEGER,
-		defaultValue  : 1,
-		allowNull     : false
-	},
-	
+		allowNull     : true
+	},	
 	'when': {
 		type          : Sequelize.DATE,
-		allowNull     : false
+		allowNull     : true
 	},
 	'image': {
 		type          : Sequelize.TEXT,
